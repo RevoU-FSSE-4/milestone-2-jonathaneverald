@@ -1,4 +1,5 @@
 import React from "react";
+import "../index.css";
 
 const PokemonThumbnail = (props: {
   id: string;
@@ -6,8 +7,11 @@ const PokemonThumbnail = (props: {
   image: string;
   type: string;
 }) => {
+  const style = `flex flex-col items-center bg-${props.type} max-w-full w-85 shadow-md rounded-xl p-3 duration-500 hover:scale-105 hover:shadow-xl`;
+  console.log(style, "line 10");
+
   return (
-    <div className="flex flex-col items-center max-w-full thumbnail-container w-85 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+    <div className={style}>
       <img
         className="size-1/2 object-contain rounded-t-xl"
         src={props.image}

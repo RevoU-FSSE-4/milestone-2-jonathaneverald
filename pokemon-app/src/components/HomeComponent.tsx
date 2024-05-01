@@ -6,7 +6,7 @@ export default function HomeComponent() {
   return (
     <>
       <HeaderComponent />
-      <div className="bg-blue-400 border-gray-200 px-4 lg:px-6 py-2.5 flex flex-wrap justify-center items-center">
+      <div className="bg-pokemon-blue border-gray-200 px-4 lg:px-6 py-2.5 flex flex-wrap justify-center items-center">
         <form className="flex flex-col items-center justify-center px-6 py-8">
           <label className="block mb-2 text-xl font-medium text-gray-900 dark:text-white">
             Search Pokemon

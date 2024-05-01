@@ -4,7 +4,7 @@ export const HeaderComponent = () => {
   return (
     <>
       <header>
-        <div className="bg-blue-400 border-gray-200 px-4 lg:px-6 py-2.5 flex flex-wrap justify-between items-center ">
+        <div className="bg-pokemon-blue border-gray-200 px-4 lg:px-6 py-2.5 flex flex-wrap justify-between items-center">
           <h1 className="self-center text-3xl font-bold whitespace-nowrap ">
             Pokemon App
           </h1>
