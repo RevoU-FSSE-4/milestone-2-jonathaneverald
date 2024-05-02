@@ -1,10 +1,52 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
+import { HeaderComponent } from "./HeaderComponent";
+import { PokemonDetails } from "./PokemonDetails";
+import { PokemonSearchContext } from "../providers/PokemonSearchProvider";
 
-export default function PokemonCardComponent() {
+const PokemonCardComponent = () => {
+  const { pokemon, setPokemon } = useContext(PokemonSearchContext);
+
+  const searchPokemon = async () => {
+    const pokemonName = localStorage.getItem("pokemon");
+    const url = "https://pokeapi.co/api/v2/pokemon/" + pokemonName;
+
+    const response = await fetch(url);
+    if (!response.ok) throw new Error("Failed to search Pokemon");
+
+    const data = await response.json();
+    setPokemon({
+      name: data.name,
+      type: data.types[0].type.name,
+      image: data.sprites.other.dream_world.front_default,
+      hp: data.stats[0].base_stat,
+      attack: data.stats[1].base_stat,
+      defense: data.stats[2].base_stat,
+      speed: data.stats[5].base_stat,
+      special_atk: data.stats[3].base_stat,
+      special_def: data.stats[4].base_stat,
+    });
+  };
+
+  useEffect(() => {
+    searchPokemon();
+  }, []);
+
   return (
     <>
-      <h1>This is Pokemon Card</h1>
-      <h2>This is Pokemon Card Component</h2>
+      <HeaderComponent />
+      <PokemonDetails
+        name={pokemon.name}
+        type={pokemon.type}
+        image={pokemon.image}
+        hp={pokemon.hp}
+        attack={pokemon.attack}
+        defense={pokemon.defense}
+        speed={pokemon.speed}
+        special_atk={pokemon.special_atk}
+        special_def={pokemon.special_def}
+      />
     </>
   );
-}
+};
+
+export default PokemonCardComponent;
