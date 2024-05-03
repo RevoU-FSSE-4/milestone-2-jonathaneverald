@@ -7,7 +7,8 @@ export const SearchPokemon = () => {
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    localStorage.setItem("pokemon", pokemonName);
+    const lowerCasePokemon = pokemonName.toLowerCase();
+    localStorage.setItem("pokemon", lowerCasePokemon);
     setTimeout(() => {
       navigate("/pokemon-card");
     }, 1500);

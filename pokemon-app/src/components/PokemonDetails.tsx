@@ -15,9 +15,9 @@ export const PokemonDetails = (props: {
   const navigate = useNavigate();
   const onClick = () => {
     localStorage.clear();
-    setTimeout(() => {
-      navigate("/");
-    }, 1500);
+    navigate("/");
+    // setTimeout(() => {
+    // }, 500);
   };
   const colors: { [key: string]: string } = {
     normal: "bg-normal",
