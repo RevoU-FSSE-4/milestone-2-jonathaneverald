@@ -35,7 +35,7 @@ export const PokemonNotExist = () => {
       </svg>
 
       <span className="text-white text-3xl font-bold">
-        Pokemon {localStorage.getItem("pokemon")} does not exist!
+        Pokemon "{localStorage.getItem("pokemon")}" does not exist!
       </span>
       <button
         onClick={onClick}
